@@ -1,0 +1,72 @@
+df = pd.read_csv('ohtani_2025_v2.csv')
+
+df_hr = df[df['events'] == 'home_run'].copy()
+# 三振のデータ（振り逃げなども含むため 'strikeout' が含まれるものを抽出）
+df_so = df[df['events'].str.contains('strikeout', na=False, case=False)].copy()
+
+# グラフの日本語文字化け対策（必要に応じてコメントアウトを外してね）
+# plt.rcParams['font.family'] = 'Meiryo' # Windowsの場合
+# plt.rcParams['font.family'] = 'Hiragino Maru Gothic Pro' # Macの場合
+
+def plot_pitch_data(data, title_prefix):
+    # 横長の図を作成（左：コース散布図、右：球速分布）
+    fig = plt.figure(figsize=(14, 6))
+
+    # --- ① コースと球種の可視化 (ストライクゾーンの散布図) ---
+    ax1 = fig.add_subplot(1, 2, 1)
+    
+    # 散布図の描画
+    sns.scatterplot(
+        data=data,
+        x='plate_x',
+        y='plate_z',
+        hue='pitch_name',       # 色で球種を表現
+        size='release_speed',   # 丸の大きさで球速を表現
+        sizes=(50, 250),        # 丸の最小〜最大サイズ
+        palette='tab10',
+        alpha=0.8,
+        ax=ax1
+    )
+
+    # 仮想のストライクゾーンの枠を描画 (大体の目安: xは-0.83~0.83, zは1.5~3.5)
+    rect = patches.Rectangle((-0.83, 1.5), 1.66, 2.0, linewidth=2, edgecolor='black', facecolor='none', linestyle='--')
+    ax1.add_patch(rect)
+    
+    # ホームベースの描画 (サイズはフィート換算)
+    home_plate = patches.Polygon([(-0.708, 0.25), (0.708, 0.25), (0.708, 0), (0, -0.5), (-0.708, 0)],
+                                 closed=True, edgecolor='black', facecolor='lightgray')
+    ax1.add_patch(home_plate)
+
+    # 軸の設定 (キャッチャー目線)
+    ax1.set_xlim(-3, 3)
+    ax1.set_ylim(-0.5, 5)
+    ax1.set_aspect('equal')
+    ax1.set_title(f'{title_prefix}: コース・球種・球速')
+    ax1.set_xlabel('Horizontal Location (ft)')
+    ax1.set_ylabel('Vertical Location (ft)')
+    
+    # 凡例をグラフの外に出す
+    ax1.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    # --- ② 球速と球種の可視化 (箱ひげ図＋ストリッププロット) ---
+    ax2 = fig.add_subplot(1, 2, 2)
+    
+    # データのばらつきを見やすくするために2つのグラフを重ねるよ
+    sns.boxplot(data=data, x='pitch_name', y='release_speed', color='white', showfliers=False, ax=ax2)
+    sns.stripplot(data=data, x='pitch_name', y='release_speed', hue='pitch_name', palette='tab10', size=8, alpha=0.7, jitter=True, ax=ax2)
+
+    ax2.set_title(f'{title_prefix}: 球種別の球速')
+    ax2.set_xlabel('Pitch Type')
+    ax2.set_ylabel('Release Speed (mph)')
+    ax2.tick_params(axis='x', rotation=45) # 球種名が重ならないように斜めに
+    
+    # 重複する凡例を削除
+    if ax2.legend_:
+        ax2.legend_.remove()
+
+    plt.tight_layout()
+    plt.show()
+
+# グラフの描画を実行！
+plot_pitch_data(df_hr, 'ホームラン')
+plot_pitch_data(df_so, '三振')
