@@ -4,10 +4,6 @@ df_hr = df[df['events'] == 'home_run'].copy()
 # 三振のデータ（振り逃げなども含むため 'strikeout' が含まれるものを抽出）
 df_so = df[df['events'].str.contains('strikeout', na=False, case=False)].copy()
 
-# グラフの日本語文字化け対策（必要に応じてコメントアウトを外してね）
-# plt.rcParams['font.family'] = 'Meiryo' # Windowsの場合
-# plt.rcParams['font.family'] = 'Hiragino Maru Gothic Pro' # Macの場合
-
 def plot_pitch_data(data, title_prefix):
     # 横長の図を作成（左：コース散布図、右：球速分布）
     fig = plt.figure(figsize=(14, 6))
