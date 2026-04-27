@@ -51,7 +51,7 @@ def plot_pitch_data(data, title_prefix):
     # --- ② 球速と球種の可視化 (箱ひげ図＋ストリッププロット) ---
     ax2 = fig.add_subplot(1, 2, 2)
     
-    # データのばらつきを見やすくするために2つのグラフを重ねるよ
+    # データのばらつきを見やすくするために2つのグラフを重ねる
     sns.boxplot(data=data, x='pitch_name', y='release_speed', color='white', showfliers=False, ax=ax2)
     sns.stripplot(data=data, x='pitch_name', y='release_speed', hue='pitch_name', palette='tab10', size=8, alpha=0.7, jitter=True, ax=ax2)
 
