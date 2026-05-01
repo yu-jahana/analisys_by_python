@@ -1,5 +1,5 @@
 # 1. データの読み込み
-df = pd.read_csv('ohtani_2025_v2.csv')
+df = pd.read_csv('ohtani_2025.csv')
 
 # 2. 「アウト」と「ヒット」を分類
 # hit_value（H）かアウト（Out）かを判別するフラグを作成

@@ -1,5 +1,5 @@
 # 1. データの読み込み
-df = pd.read_csv('ohtani_2025_v2.csv')
+df = pd.read_csv('ohtani_2025.csv')
 
 # 2. ボール球（ゾーン外）の定義
 # Statcastの一般的な定義：xは-0.83~0.83以外、zは1.5~3.5以外

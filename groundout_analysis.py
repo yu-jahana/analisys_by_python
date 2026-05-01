@@ -1,6 +1,6 @@
 
 # 1. データの読み込み
-df = pd.read_csv('ohtani_2025_v2.csv')
+df = pd.read_csv('ohtani_2025.csv')
 
 # 2. バットに当たってインプレーになったデータに絞る
 df_in_play = df[df['description'] == 'hit_into_play'].copy()

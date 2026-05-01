@@ -1,5 +1,5 @@
 # 1. データの読み込み
-df = pd.read_csv('ohtani_2025_v2.csv')
+df = pd.read_csv('ohtani_2025.csv')
 
 # 2. インプレーの打球データのみ抽出（座標があるもの）
 df_spray = df[df['hc_x'].notna() & df['hc_y'].notna()].copy()

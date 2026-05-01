@@ -1,5 +1,5 @@
 # 1. データの読み込み
-df = pd.read_csv('ohtani_2025_v2.csv')
+df = pd.read_csv('ohtani_2025.csv')
 
 # 2. カウント（ボール-ストライク）を文字列で作成
 df['count'] = df['balls'].astype(str) + '-' + df['strikes'].astype(str)

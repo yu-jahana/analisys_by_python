@@ -1,6 +1,6 @@
 
 # 1. データの読み込み
-df = pd.read_csv('ohtani_2025_v2.csv')
+df = pd.read_csv('ohtani_2025.csv')
 
 # 2. 空振り(swinging_strike)のデータに絞る
 # 苦手 ＝ 「バットが空を切った」という定義で分析するよ！

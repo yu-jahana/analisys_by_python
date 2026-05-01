@@ -1,5 +1,5 @@
 # 1. データの読み込み
-df = pd.read_csv('ohtani_2025_v2.csv')
+df = pd.read_csv('ohtani_2025.csv')
 
 # 2. 1球前のデータ（球種・コース・結果）を紐付け
 # 打席(at_bat_number)が変わらない範囲で、1球前の情報をシフトして取得

@@ -1,4 +1,4 @@
-df = pd.read_csv('ohtani_2025_v2.csv')
+df = pd.read_csv('ohtani_2025.csv')
 
 df_hr = df[df['events'] == 'home_run'].copy()
 # 三振のデータ（振り逃げなども含むため 'strikeout' が含まれるものを抽出）
