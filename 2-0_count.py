@@ -1,3 +1,7 @@
+## 2-0 カウント時に大谷は強振してくることが分かった
+## 大谷はそのカウントで何を待ってるのか、何を振ってくるのかを深ぼってみた
+
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
