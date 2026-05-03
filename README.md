@@ -8,6 +8,7 @@
 
 ## 使用したデータ
 MLB公式（Statcast）に溜まっている2025年の大谷翔平の打撃データ
+
 https://baseballsavant.mlb.com/
 
 ## 言語
