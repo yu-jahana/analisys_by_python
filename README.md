@@ -1,4 +1,4 @@
-# analisys_by_python
+# ohtani-analysis-2025
 
 ## 背景
 毎年打ちまくる大谷翔平の弱点はないのか単純に知りたくなった
