@@ -8,18 +8,19 @@
 
 ## 使用したデータ
 MLB公式（Statcast）に溜まっている2025年の大谷翔平の打撃データ
+https://baseballsavant.mlb.com/
 
 ## 言語
 Python
 
 ## 事前準備
-1. Statcast の全打者データを抽出
+1. Statcast にある全打者データを抽出
 ```
 ! pip install pybaseball
 from pybaseball import statcast_batter
 ```
 
-2. 全打者の打撃データから大谷の ID（660271）で大谷のデータだけ抽出
+2. 全打者の打撃データから大谷の ID（660271）を使用し大谷のデータだけ抽出
 ```
 # 大谷選手の打者データ抽出
 shohei_ohtani = 660271
