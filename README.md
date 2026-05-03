@@ -21,7 +21,7 @@ from pybaseball import statcast_batter
 
 2. 全打者の打撃データから大谷の ID（660271）で大谷のデータだけ抽出
 ```
-# 大谷選手の打者データ抽出（2023/3/30〜2023/10/1）
+# 大谷選手の打者データ抽出
 shohei_ohtani = 660271
 data = statcast_batter('2025-03-30', '2025-10-01', shohei_ohtani)
 ```
