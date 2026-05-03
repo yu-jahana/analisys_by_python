@@ -1,3 +1,5 @@
+## ホームランと三振それぞれの球種、球速、コースの可視化
+
 df = pd.read_csv('ohtani_2025.csv')
 
 df_hr = df[df['events'] == 'home_run'].copy()
