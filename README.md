@@ -15,26 +15,25 @@ https://baseballsavant.mlb.com/
 Python
 
 ## 事前準備
-1. Statcast にある全打者データを抽出
+### 1. Statcast にある全打者データを抽出
 ```
 ! pip install pybaseball
 from pybaseball import statcast_batter
 ```
 
-2. 全打者の打撃データから大谷の ID（660271）を使用し大谷のデータだけ抽出
+### 2. 全打者の打撃データから大谷の ID（660271）を使用し大谷のデータだけ抽出
 ```
 # 大谷選手の打者データ抽出
 shohei_ohtani = 660271
 data = statcast_batter('2025-03-30', '2025-10-01', shohei_ohtani)
 ```
 
-3. CSV 化
+### 3. CSV 化
 ```
 data.to_csv('judge_2025.csv')
 ```
 
-4. 
-必要なライブラリをインポートして準備完了
+### 4. 必要なライブラリをインポートして準備完了
 ```
 import pandas as pd
 import matplotlib.pyplot as plt
