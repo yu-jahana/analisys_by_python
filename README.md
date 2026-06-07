@@ -30,7 +30,7 @@ data = statcast_batter('2025-03-30', '2025-10-01', shohei_ohtani)
 
 ### 3. CSV 化
 ```
-data.to_csv('judge_2025.csv')
+data.to_csv('ohtani_2025.csv')
 ```
 
 ### 4. 必要なライブラリをインポートして準備完了
